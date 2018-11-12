@@ -1,0 +1,57 @@
+<%= form_with(model: stablishment, local: true) do |form| %>
+  <% if stablishment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(stablishment.errors.count, "error") %> prohibited this stablishment from being saved:</h2>
+
+      <ul>
+      <% stablishment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :stablishment_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :stablishment_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :stablishment_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.text_field :country, id: :stablishment_country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone, id: :stablishment_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone2 %>
+    <%= form.text_field :phone2, id: :stablishment_phone2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cnpj %>
+    <%= form.text_field :cnpj, id: :stablishment_cnpj %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fantasy %>
+    <%= form.text_field :fantasy, id: :stablishment_fantasy %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

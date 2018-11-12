@@ -1,0 +1,2 @@
+module StablishmentsHelper
+end

@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Stablishments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Address</th>
+      <th>Name</th>
+      <th>User</th>
+      <th>Country</th>
+      <th>Phone</th>
+      <th>Phone2</th>
+      <th>Cnpj</th>
+      <th>Fantasy</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stablishments.each do |stablishment| %>
+      <tr>
+        <td><%= stablishment.address %></td>
+        <td><%= stablishment.name %></td>
+        <td><%= stablishment.user %></td>
+        <td><%= stablishment.country %></td>
+        <td><%= stablishment.phone %></td>
+        <td><%= stablishment.phone2 %></td>
+        <td><%= stablishment.cnpj %></td>
+        <td><%= stablishment.fantasy %></td>
+        <td><%= link_to 'Show', stablishment %></td>
+        <td><%= link_to 'Edit', edit_stablishment_path(stablishment) %></td>
+        <td><%= link_to 'Destroy', stablishment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Stablishment', new_stablishment_path %>
