@@ -10,12 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181116212401) do
+ActiveRecord::Schema.define(version: 20181118225828) do
+
+  create_table "cart_products", force: :cascade do |t|
+    t.integer "cart_id"
+    t.integer "product_id"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_cart_products_on_cart_id"
+    t.index ["product_id"], name: "index_cart_products_on_product_id"
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.integer "user_id"
+    t.date "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_carts_on_user_id"
+  end
 
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.integer "quantity"
-    t.decimal "price"
+    t.decimal "price", precision: 5, scale: 2
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -24,15 +42,11 @@ ActiveRecord::Schema.define(version: 20181116212401) do
   create_table "stablishments", force: :cascade do |t|
     t.string "address"
     t.string "name"
-    t.integer "user_id"
-    t.string "country"
+    t.integer "company_user_id"
     t.string "phone"
-    t.string "phone2"
-    t.string "cnpj"
-    t.string "fantasy"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_stablishments_on_user_id"
+    t.index ["company_user_id"], name: "index_stablishments_on_company_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,6 +59,13 @@ ActiveRecord::Schema.define(version: 20181116212401) do
     t.datetime "updated_at", null: false
     t.string "address"
     t.string "phone"
+    t.string "type", default: "HumanUser", null: false
+    t.string "cpf_cnpj"
+    t.string "name"
+    t.string "company_name"
+    t.string "fantasy"
+    t.string "gender"
+    t.date "birthdate"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
