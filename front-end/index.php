@@ -13,29 +13,9 @@
 </head>
 <body>
     <div>
-        <div id="head">
-            <div>
-                <span class="header-btn">
-                    <span style="margin-right:15px;">
-                        <i class="fa fa-tag"></i>
-                    </span> 
-                    <span>
-                        Ofertas
-                    </span>
-                </span>
-            </div>
-            <div style="text-align:center"">
-                <span>
-                    LOGO
-                </span>
-            </div>
-            <div>                  
-                <span  style="float:right" class="header-btn" id="EntrarButton"> 
-                    Entrar
-                </span>                 
-            </div>
-            
-        </div>
+        <?php 
+            include "header.php";
+        ?>
         <div id="search-box">        
             <div>
                 <div>
@@ -374,10 +354,11 @@
                     <div style="color:grey;text-align:center;font-size:22px;margin-bottom:30px">
                         Efetue seu cadastro agora
                     </div>
+              
                     <div class="input-login mb-15">        
                         <div>
                             <div>
-                                <i class="fa fa-at"></i>        
+                                <i class="fa fa-user"></i>        
                             </div>
                             <input placeholder="Seu Nome" type="text">
                         </div>
@@ -393,9 +374,9 @@
                     <div class="input-login mb-15">        
                         <div>
                             <div>
-                                <i class="fa fa-at"></i>        
+                                <i class="fa fa-key"></i>        
                             </div>
-                            <input placeholder="Sua Senha" type="password">
+                            <input placeholder="Sua Melhor Senha" type="password">
                         </div>
                     </div>
                     <div  class="btn btn-red" style="display:block;" id="ButtonCadastro" style="">
