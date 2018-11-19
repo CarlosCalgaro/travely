@@ -123,6 +123,9 @@ input{
     display:flex;
     padding: 15px 30px;
 }
+.product{
+    transition: all 0.5s ease;
+}
 .product-container{            
     background:#f4f4f4;
     padding:10px;
@@ -144,6 +147,11 @@ input{
     width:50%;
     max-width:50%;
     min-height:400px;
+   
+}
+.p1:hover{
+    width:70%;
+    max-width:70%;
 }
 
 .p2{
@@ -152,8 +160,16 @@ input{
     max-height:200px;
     display:flex;
 }
+.p2:hover{
+    height:270px;
+    max-height:270px;
+}
 .p3{
     width:33.3%;
+    min-height:300px;
+}
+.p3:hover{
+    width:50%;
     min-height:300px;
 }
 .square-h{
@@ -331,4 +347,7 @@ input{
 }
 .product-detail-description{
     color:#3f3f3f;   
+}
+svg.fa-star{
+    color:#fbaa0e
 }

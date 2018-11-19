@@ -9,8 +9,8 @@
             </span>
         </span>
     </div>
-    <div style="text-align:center"">
-        <span>
+    <div style="text-align:center"">        
+        <span style="cursor:pointer" onclick="location='index.php'">
             LOGO
         </span>
     </div>

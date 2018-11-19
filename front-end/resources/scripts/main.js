@@ -15,6 +15,9 @@ jQuery(document).ready(function(){
         jQuery(e.currentTarget).parents('.modal-container').slideUp(400);
         jQuery('.dimmer').fadeOut(400);
     })
+    jQuery(".product").click(function(){
+        window.location = "detalhe.php"
+    })
 })
 
 function OpenCadastroForm(){
