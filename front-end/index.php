@@ -36,6 +36,9 @@
             </div>
             
         </div>
+        <?php 
+            include "header.php";
+        ?>
         <div id="search-box">        
             <div>
                 <div>
@@ -331,6 +334,7 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     <div class="dimmer"></div>
     <div id="ModalLogin" class="modal-container">
         <div>
@@ -406,5 +410,8 @@
             </div>
         </div>
     </div>
+=======
+    <?php include "modals.php" ?>
+>>>>>>> 40e696e5d8d5e752ee37d8528f653b652d54c444
 </body>
 </html>

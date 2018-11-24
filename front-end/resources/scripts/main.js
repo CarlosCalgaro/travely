@@ -7,13 +7,16 @@ jQuery(document).ready(function(){
     }).trigger('resize')
     jQuery("#EntrarButton").click(function(){
         jQuery("#ModalLogin").slideDown(400);
-        jQuery("#LoginContainer").show()
-        jQuery("#CadastroContainer").hide()
+        jQuery(".LoginContainer").show()
+        jQuery(".CadastroContainer").hide()
         jQuery(".dimmer").fadeIn(400);
     })
     jQuery('.modal-close').click(function(e){
         jQuery(e.currentTarget).parents('.modal-container').slideUp(400);
         jQuery('.dimmer').fadeOut(400);
+    })
+    jQuery(".product").click(function(){
+        window.location = "detalhe.php"
     })
 })
 
