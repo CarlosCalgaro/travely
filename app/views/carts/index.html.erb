@@ -16,6 +16,19 @@
       <tr>
         <td><%= cart.user %></td>
         <td><%= cart.date %></td>
+         <table>
+            <thead>
+              <td>Name</td>
+              <td>Quantity</td>
+
+            </thead>
+              <% cart.items.each do |item| %>
+                  <tbody>
+                    <td><%= item.name %></td>
+                    <td><%= item.quantity %></td>
+                  </tbody>
+              <% end %>
+          </table>
         <td><%= link_to 'Show', cart %></td>
         <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
         <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>

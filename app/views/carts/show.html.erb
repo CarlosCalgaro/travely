@@ -1,14 +1,39 @@
 <p id="notice"><%= notice %></p>
 
+
 <p>
   <strong>User:</strong>
-  <%= @cart.user %>
+  <%= @cart.user.email %>
 </p>
 
 <p>
   <strong>Date:</strong>
   <%= @cart.date %>
 </p>
-
+<p>
+  <table>
+    <thead>
+      <td>Name</td>
+      <td>Quantity</td>
+      <td>Price</td>
+    </thead>
+      <% @cart.items.each do |item| %>
+          <tbody>
+            <tr>
+              <td><%= item.name %></td>
+              <td><%= item.quantity %></td>
+              <td><%= item.price %></td>
+              <td><%= link_to "Remove from cart", remove_item_from_cart_path(item), method: :delete%></td>
+            </tr>
+          </tbody>
+      <% end %>
+    <tfoot>
+      <tr>
+        <td>Total Price: </td>
+        <td><%= total_price(@cart) %></td>
+      </tr>
+    </tfoot>
+  </table>
+<p>
 <%= link_to 'Edit', edit_cart_path(@cart) %> |
 <%= link_to 'Back', carts_path %>

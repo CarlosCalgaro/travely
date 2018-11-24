@@ -24,7 +24,7 @@
                     </span>
                 </span>
             </div>
-            <div style="text-align:center"">
+            <div style="text-align:center">
                 <span>
                     LOGO
                 </span>
@@ -263,7 +263,7 @@
             </div>
         </div>
         <div class="no-shadow"></div>    
-        <div class="title"">
+        <div class="title">
             Promoções
         </div>
         <div class="product-container">
@@ -331,7 +331,7 @@
             </div>
         </div>
     </div>
-    <div class="dimmer""></div>
+    <div class="dimmer"></div>
     <div id="ModalLogin" class="modal-container">
         <div>
             <div class="modal">

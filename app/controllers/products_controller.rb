@@ -1,8 +1,15 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
+  before_action :can_commit, only: [:create, :new, :update, :edit]
   # GET /products
   # GET /products.json
+  def can_commit
+    if current_user.is_human?
+      flash[:alert] = "Apenas usuários empresas podem editar"
+      redirect_to root_path if current_user.is_human?
+    end
+  end
+
   def index
     @products = Product.all
   end
