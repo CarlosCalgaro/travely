@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :cart
-
+  has_many :reservations
   def is_human?
     self.type == "HumanUser" ? true : false
   end

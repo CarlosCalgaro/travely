@@ -1,7 +1,33 @@
-<h1>Travely Home Page</h1>
-<p>Aqui está a pagina Home</p>
+<h1> Bem vindo de volta <%= current_user.email%></h1>
 
 
+<h3>Suas reservas</h3>
+    <table>
+        <thead>
+            <tr>
+                <tH>Data Inicial</th>
+                <tH>Data Final</th>
+                <tH>Nome do Produto</th>
+                <tH>Lugar</th>
+                <th>Preço</th>
+            </tr>
+        </thead>
+
+        <% current_user.reservations.each do |reserve| %>
+        <tbody>
+            <tr>
+                <td> <%= reserve.initial_date %></td>
+                <td> <%= reserve.final_date %></td>
+                <td> <%= reserve.item.name %></td>
+                <td> <%= reserve.item.product.address %></td>
+                <td> <%= (reserve.item.price * reserve.item.quantity)%></td>
+                
+            </tr>
+        </tbody> 
+        <% end %>
+
+    </table>
+<br>
 <%= link_to "Produtos", products_path %>
 <%= link_to "Estabelecimentos", stablishments_path %>
 <%= link_to "Carts", carts_path %>

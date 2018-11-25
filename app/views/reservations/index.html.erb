@@ -20,8 +20,8 @@
         <td><%= reservation.initial_date %></td>
         <td><%= reservation.final_date %></td>
         <td><%= reservation.obs %></td>
-        <td><%= reservation.user %></td>
-        <td><%= reservation.item %></td>
+        <td><%= reservation.user.email %></td>
+        <td><%= reservation.item.name %></td>
         <td><%= link_to 'Show', reservation %></td>
         <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
         <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
