@@ -12,33 +12,15 @@
 
 <p>
   <strong>User:</strong>
-  <%= @stablishment.user %>
+  <%= @stablishment.company_user.email %>
 </p>
 
-<p>
-  <strong>Country:</strong>
-  <%= @stablishment.country %>
-</p>
 
 <p>
   <strong>Phone:</strong>
   <%= @stablishment.phone %>
 </p>
 
-<p>
-  <strong>Phone2:</strong>
-  <%= @stablishment.phone2 %>
-</p>
-
-<p>
-  <strong>Cnpj:</strong>
-  <%= @stablishment.cnpj %>
-</p>
-
-<p>
-  <strong>Fantasy:</strong>
-  <%= @stablishment.fantasy %>
-</p>
 
 <%= link_to 'Edit', edit_stablishment_path(@stablishment) %> |
 <%= link_to 'Back', stablishments_path %>

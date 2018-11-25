@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
-    has_many :cart_items
-    has_one :cart, through: :cart_items
-
+    belongs_to :product
+    has_one :cart_item
+    has_one :cart, through: :cart_item
 
     def total_value
         quantity * price

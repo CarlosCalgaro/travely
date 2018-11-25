@@ -3,7 +3,7 @@ class CreateStablishments < ActiveRecord::Migration[5.1]
     create_table :stablishments do |t|
       t.string :address
       t.string :name
-      t.references :company_user, foreign_key: true
+      t.references :user, foreign_key: true
       t.string :phone
       t.timestamps
     end

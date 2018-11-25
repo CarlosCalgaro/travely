@@ -9,6 +9,19 @@
   </head>
 
   <body>
+
+    <table>
+      <tbody>
+        <tr>
+          <td><%=link_to "Reservations", reservations_path %></td>
+          <td><%=link_to "Item", items_path %></td>
+          <td><%=link_to "Carts", carts_path %></td>
+          <td><%=link_to "Products", products_path %></td>
+          <td><%=link_to "Stablishments", stablishments_path %></td>
+          <td><%=link_to "Home", home_index_path %></td>
+        </tr>
+      </tbody>
+    </table>
     <%= yield %>
   </body>
 </html>

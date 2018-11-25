@@ -1,17 +1,25 @@
 Rails.application.routes.draw do
-  resources :items
+  
+  resources :reservations
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations',
+    passwords: 'users/passwords',
+    confirmations: 'users/confirmations',
+    unlocks: 'users/unlocks'
+  }
+
+  resources :items, except: [:new, :create]
   resources :carts
   resources :products
   resources :stablishments
-  post "carts/add_item/:product_id", to: "carts#add_item", as: 'add_item_to_cart'
+  #post "carts/add_item/:product_id", to: "carts#add_item", as: 'add_item_to_cart'
   delete "carts/remove_item/:item_id", to: "carts#remove_item", as: 'remove_item_from_cart'
 
+  get "items/new/:product_id", to: 'items#new', as: 'new_item'
+  post "items/create/:product_id", to: 'items#create', as: 'create_item'
+
   get 'home/index'
-
-  get 'teste/test'
-  devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
   root to: "home#index"
-
 end

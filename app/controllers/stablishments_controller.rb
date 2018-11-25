@@ -25,7 +25,7 @@ class StablishmentsController < ApplicationController
   # POST /stablishments.json
   def create
     @stablishment = Stablishment.new(stablishment_params)
-
+    @stablishment.company_user = current_user
     respond_to do |format|
       if @stablishment.save
         format.html { redirect_to @stablishment, notice: 'Stablishment was successfully created.' }
@@ -69,6 +69,6 @@ class StablishmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stablishment_params
-      params.require(:stablishment).permit(:address, :name, :user_id, :country, :phone, :phone2, :cnpj, :fantasy)
+      params.require(:stablishment).permit(:address, :name, :country, :phone, :phone2, :cnpj, :fantasy)
     end
 end

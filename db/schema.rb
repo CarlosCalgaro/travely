@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181119235326) do
+ActiveRecord::Schema.define(version: 20181124210200) do
 
   create_table "cart_items", force: :cascade do |t|
     t.integer "cart_id"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20181119235326) do
     t.datetime "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "product_id"
+    t.index ["product_id"], name: "index_items_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -46,16 +48,30 @@ ActiveRecord::Schema.define(version: 20181119235326) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "stablishment_id"
+    t.index ["stablishment_id"], name: "index_products_on_stablishment_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.datetime "initial_date"
+    t.datetime "final_date"
+    t.string "obs"
+    t.integer "user_id"
+    t.integer "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_reservations_on_item_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "stablishments", force: :cascade do |t|
     t.string "address"
     t.string "name"
-    t.integer "company_user_id"
+    t.integer "user_id"
     t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["company_user_id"], name: "index_stablishments_on_company_user_id"
+    t.index ["user_id"], name: "index_stablishments_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

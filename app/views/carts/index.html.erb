@@ -14,7 +14,7 @@
   <tbody>
     <% @carts.each do |cart| %>
       <tr>
-        <td><%= cart.user %></td>
+        <td><%= cart.user.email %></td>
         <td><%= cart.date %></td>
          <table>
             <thead>

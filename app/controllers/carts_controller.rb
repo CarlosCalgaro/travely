@@ -24,14 +24,17 @@ class CartsController < ApplicationController
       name: @product.name,
       quantity: item_params[:quantity],
       price: @product.price,
-      date: Time.now
+      date: Time.now,
+      product_id: @product.id
     )
     cart_item = CartItem.new(
       cart: current_user_cart,
       item: @item,
       quantity: item_params[:quantity]
     )
-    current_user_cart.inspect
+    @product.update_attributes(
+      quantity: @product.quantity - @item.quantity, 
+    )
     if cart_item.save
       redirect_to carts_path(current_user_cart)
     else
@@ -40,9 +43,11 @@ class CartsController < ApplicationController
   end
 
   def remove_item
-    binding.pry
     item = Item.find(params[:item_id])
-    
+    item.cart_item.destroy
+    item.destroy
+    flash[:success] = 'Item removido do carrinho'
+    redirect_to root_path
   end
 
   # POST /carts
@@ -109,9 +114,11 @@ class CartsController < ApplicationController
   
   def current_user_cart
     if current_user.cart.blank?
-      Cart.create(user_id: current_user.id, date: Time.now)
+      @current_cart =  Cart.create(user_id: current_user.id, date: Time.now)
+    else
+      @current_cart||=  current_user.cart
     end
-    current_user.cart
+    return @current_cart
   end
 
 end
