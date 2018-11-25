@@ -14,13 +14,21 @@
               <%= reservation_fields.label :final_date%>
               <%= reservation_fields.datetime_select :final_date, id: :reservation_initial_date %>
             </td>
-          </tr>             
+          </tr>
+            <tr>
+              <td>
+                <%= reservation_fields.label :obs %>
+                <%= reservation_fields.text_area :obs %>
+              </td>
+            </tr>           
         <% end %>
         <tr>
           <td>
               <%= f.label :quantity %>
               <%= f.text_field :quantity %></td>
         </tr>
+
+       
         <tr>
           <td><%= f.submit 'Adicionar' %></td>
         </tr>

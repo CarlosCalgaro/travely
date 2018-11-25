@@ -24,15 +24,12 @@
           <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <td><%= link_to 'Add to cart', new_item_path(product), method: :get %></td>
       </tr>
-      <tr>
-        <td>
-        
-          </td>
-      </tr>
     </tbody>
   </table>
   <h3> Adicionar ao Carrinho</h3>
  <% end %>
+
+
 <br>
 
 <%= link_to 'New Product', new_product_path %>
