@@ -1,0 +1,84 @@
+<div class="dimmer""></div>
+<div id="ModalLogin" class="modal-container">
+  <div>
+    <div class="modal">
+      <div class="modal-close">
+        <i class="fa fa-times"></i>
+      </div>
+
+      <div class="LoginContainer">
+        <%= form_for(resource_name, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+          <div style="text-align:center;margin-bottom:40px">
+            TURISMARIA
+          </div>
+
+          <%= devise_error_messages! %>
+
+          <div class="input-login mb-15">
+            <div>
+              <div>
+                <i class="fa fa-at"></i>
+              </div>
+              <%= f.email_field :email, placeholder: "Email" %>
+            </div>
+          </div>
+          <div class="input-login mb-15">
+            <div>
+              <div>
+                <i class="fa fa-key"></i>
+              </div>
+              <%= f.password_field :password, placeholder: "Senha" %>
+            </div>
+          </div>
+
+          <%= f.submit "Entrar", class: "btn btn-red btn-block mb-30" %>
+
+          <div style="color:grey;text-align:center;font-size:17px;">
+            Não possui uma conta?
+          </div>
+          <div id="ButtonCadastro" onclick="OpenCadastroForm()" style="">
+            Cadastre-se Agora
+          </div>
+        <% end %>
+      </div>
+
+
+      <div class="CadastroContainer" style="display:none">
+        <%= form_for(resource_name, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+          <div style="color:grey;text-align:center;font-size:22px;margin-bottom:30px">
+            Efetue seu cadastro agora
+          </div>
+
+          <%= devise_error_messages! %>
+
+          <div class="input-login mb-15">
+            <div>
+              <div>
+                <i class="fa fa-user"></i>
+              </div>
+              <%= f.text_field :name, placeholder: "Nome" %>
+            </div>
+          </div>
+          <div class="input-login mb-15">
+            <div>
+              <div>
+                <i class="fa fa-at"></i>
+              </div>
+              <%= f.email_field :email, placeholder: "Email" %>
+            </div>
+          </div>
+          <div class="input-login mb-15">
+            <div>
+              <div>
+                <i class="fa fa-key"></i>
+              </div>
+              <%= f.password_field :password, placeholder: "Senha" %>
+            </div>
+          </div>
+          <%= f.submit "Cadastrar", class: "btn btn-red btn-block" %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>
