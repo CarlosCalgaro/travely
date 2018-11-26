@@ -1,27 +1,40 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Travely</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <script src="/vendors/jquery/jquery.js"></script>
+    <script src="/resources/scripts/main.js"></script>
+    <script src="/vendors/font-awesome/fontawesome-all.js"></script>
+    <link rel="stylesheet" href="/vendors/font-awesome/fa-svg-with-js.css">
+    <link rel="stylesheet" href="/resources/styles/main.css">
+</head>
+<body>
+    <%= render "layouts/header" %>
 
-  <body>
+    <div id="search-box">
+      <div>
+        <div>
+          <i class="fa fa-search"></i>
+        </div>
+        <input placeholder="O que está procurando?" type="text">
+      </div>
+    </div>
 
-    <table>
-      <tbody>
-        <tr>
-          <td><%=link_to "Reservations", reservations_path %></td>
-          <td><%=link_to "Item", items_path %></td>
-          <td><%=link_to "Carts", carts_path %></td>
-          <td><%=link_to "Products", products_path %></td>
-          <td><%=link_to "Stablishments", stablishments_path %></td>
-          <td><%=link_to "Home", home_index_path %></td>
-        </tr>
-      </tbody>
-    </table>
+    <div id="banner">
+      <div class="opacity-top"></div>
+      <div class="reflection"></div>
+      <img  class=""src="/resources/images/cabana.jpg">
+      <div class="opacity-bottom"></div>
+    </div>
+
     <%= yield %>
+
+    <%= render "layouts/modals" %>
   </body>
 </html>

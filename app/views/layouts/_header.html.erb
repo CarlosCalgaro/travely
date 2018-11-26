@@ -1,0 +1,27 @@
+<div id="head">
+    <div>
+        <span class="header-btn">
+            <span style="margin-right:15px;">
+                <i class="fa fa-tag"></i>
+            </span>
+            <span>
+                Ofertas
+            </span>
+        </span>
+    </div>
+    <div class="header-logo">
+        <%= link_to "Turismaria", home_index_path %>
+    </div>
+    <div>
+        <% if user_signed_in? %>
+            <%= link_to('Sair', destroy_user_session_path, class: "header-btn", style: "float:right") %>
+            <%= link_to('Meus Produtos', products_path, class: "header-btn", style: "float:right") %>
+            <%= link_to('Minhas Reservas', reservations_path, class: "header-btn", style: "float:right") %>
+            <%= link_to('Carrinho', carts_path, class: "header-btn", style: "float:right") %>
+        <% else %>
+            <span style="float:right" class="header-btn" id="EntrarButton">
+                Entrar
+            </span>
+        <% end %>
+    </div>
+</div>

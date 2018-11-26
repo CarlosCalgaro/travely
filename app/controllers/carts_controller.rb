@@ -33,7 +33,7 @@ class CartsController < ApplicationController
       quantity: item_params[:quantity]
     )
     @product.update_attributes(
-      quantity: @product.quantity - @item.quantity, 
+      quantity: @product.quantity - @item.quantity,
     )
     if cart_item.save
       redirect_to carts_path(current_user_cart)
@@ -111,7 +111,7 @@ class CartsController < ApplicationController
   def item_params
     params.require(:item).permit(:quantity)
   end
-  
+
   def current_user_cart
     if current_user.cart.blank?
       @current_cart =  Cart.create(user_id: current_user.id, date: Time.now)
