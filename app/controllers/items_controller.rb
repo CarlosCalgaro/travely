@@ -34,11 +34,7 @@ class ItemsController < ApplicationController
       date: Time.now,
       product_id: @product.id
     )
-    @cart_item = CartItem.create(
-      cart: current_user_cart,
-      item: @item,
-      quantity: item_params[:quantity]
-    )
+   
     @product.update_attributes(
         quantity: @product.quantity - @item.quantity,
     )
@@ -52,9 +48,9 @@ class ItemsController < ApplicationController
     )
 
     respond_to do |format|
-      if @product.errors.any? || @cart_item.errors.any? ||
-        @item.errors.any? || @reservation.errors.any?
-          format.html { redirect_to cart_path(current_user_cart), notice: 'Item was successfully created.' }
+      if @product.errors.any? || @item.errors.any? || 
+         @reservation.errors.any?
+          format.html { render :show, status: :created, notice: 'Item was successfully created.' }
           format.json { render :show, status: :created, location: @item }
       else
         format.html { redirect_to root_path }
@@ -77,6 +73,11 @@ class ItemsController < ApplicationController
     end
   end
 
+
+  def checkout
+    
+  end
+  
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy

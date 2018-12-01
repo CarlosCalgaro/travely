@@ -10,13 +10,13 @@ Rails.application.routes.draw do
   }
 
   resources :items, except: [:new, :create]
-  resources :carts
   resources :products
   resources :stablishments
   #post "carts/add_item/:product_id", to: "carts#add_item", as: 'add_item_to_cart'
   delete "carts/remove_item/:item_id", to: "carts#remove_item", as: 'remove_item_from_cart'
 
   get "items/new/:product_id", to: 'items#new', as: 'new_item'
+  get "items/:id/checkout", to: "items#checkout", as: 'checkout_item'
   post "items/create/:product_id", to: 'items#create', as: 'create_item'
 
   get 'home/index'
