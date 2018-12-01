@@ -1,37 +1,33 @@
- <table>
-    <tbody>
-      <%= form_for :item , url: create_item_path(product_id: @product), 
-      html:{method: 'post'} do |f| %> 
-        <%= fields_for :reservation do |reservation_fields| %>
-          <tr>
-            <td>
-              <%= reservation_fields.label :initial_date%>
-              <%= reservation_fields.datetime_select :initial_date, id: :reservation_initial_date %>
-            </td>
-          </tr> 
-          <tr>
-            <td>
-              <%= reservation_fields.label :final_date%>
-              <%= reservation_fields.datetime_select :final_date, id: :reservation_initial_date %>
-            </td>
-          </tr>
-            <tr>
-              <td>
-                <%= reservation_fields.label :obs %>
-                <%= reservation_fields.text_area :obs %>
-              </td>
-            </tr>           
-        <% end %>
-        <tr>
-          <td>
-              <%= f.label :quantity %>
-              <%= f.text_field :quantity %></td>
-        </tr>
 
-       
-        <tr>
-          <td><%= f.submit 'Adicionar' %></td>
-        </tr>
-        <% end %>
-  </tbody>
-</table>
+ <%= form_for :item , url: create_item_path(product_id: @product),  
+        html:{
+          method: 'post', 
+          style:' margin-left: 25%;
+                  text-align:center' 
+              } do |f| %> 
+            <%= fields_for :reservation do |reservation_fields| %>
+              <%= reservation_fields.label 'Data Inicial'%>
+              <div class="input-login mb-15">
+                <%= reservation_fields.datetime_select :initial_date, id: :reservation_initial_date %>
+              </div>
+              
+              <%= reservation_fields.label 'Data Final'%>
+              <div class="input-login mb-15">
+                <%= reservation_fields.datetime_select :final_date, id: :reservation_initial_date %>
+              </div>
+                  <%= reservation_fields.label 'Observação' %> 
+                  <div class="input-login mb-15">
+                    <div>
+                      <%= reservation_fields.text_field :obs, id: "user_email" %>
+                    </div>
+                  </div>
+            <% end %>
+            <%= f.label 'Quantidade' %>
+            <div class="input-login mb-15">
+              <div>
+                <%= f.text_field :quantity %>
+              </div>
+            </div>
+          
+          <%= f.submit 'Adicionar', class: 'btn btn-red btn-block mb-30'%>
+  <% end %>

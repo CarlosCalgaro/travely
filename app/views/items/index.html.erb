@@ -2,7 +2,7 @@
 
 <h1>Items</h1>
 
-<table>
+<table class="tabela">
   <thead>
     <tr>
       <th>Name</th>
@@ -20,9 +20,9 @@
         <td><%= item.quantity %></td>
         <td><%= item.price %></td>
         <td><%= item.date %></td>
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Visualizar', item %></td>
+        <td><%= link_to 'Editar', edit_item_path(item) %></td>
+        <td><%= link_to 'Remover', item, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>

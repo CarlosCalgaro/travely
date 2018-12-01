@@ -46,11 +46,10 @@ class ItemsController < ApplicationController
       user: current_user,
       item: @item,
     )
-
     respond_to do |format|
-      if @product.errors.any? || @item.errors.any? || 
-         @reservation.errors.any?
-          format.html { render :show, status: :created, notice: 'Item was successfully created.' }
+      if !(@product.errors.any? || @item.errors.any? || 
+           @reservation.errors.any?)
+          format.html { redirect_to @item, status: :created }
           format.json { render :show, status: :created, location: @item }
       else
         format.html { redirect_to root_path }

@@ -20,9 +20,9 @@
         <td><%= stablishment.name %></td>
         <td><%= stablishment.user.email %></td>
         <td><%= stablishment.phone %></td>
-        <td><%= link_to 'Show', stablishment %></td>
-        <td><%= link_to 'Edit', edit_stablishment_path(stablishment) %></td>
-        <td><%= link_to 'Destroy', stablishment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Visualizar', stablishment %></td>
+        <td><%= link_to 'Editar', edit_stablishment_path(stablishment) %></td>
+        <td><%= link_to 'Remover', stablishment, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>

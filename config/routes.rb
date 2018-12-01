@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   post "items/create/:product_id", to: 'items#create', as: 'create_item'
 
   get 'home/index'
+  get 'home/checkout'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "home#index"
 end
