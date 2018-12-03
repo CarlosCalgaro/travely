@@ -1,24 +1,19 @@
 <p id="notice"><%= notice %></p>
+<div style=" text-align:center">
+  <div class="product-title">
+    <h1>
+      <%= @item.name %>
+    </h1>
+  </div>
+  <strong>Preço:</strong>
+  <div class="product-price"> R$<%= @item.price %> </div>
+  <strong>Quantidade</strong>
+  <div class="product-price"><%= @item.quantity %></div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @item.name %>
-</p>
+  <strong>Total:</strong>
+  <div class="product-price"> R$ <%= @item.price * @item.quantity%> </div>
 
-<p>
-  <strong>Quantity:</strong>
-  <%= @item.quantity %>
-</p>
+  <%= link_to 'Finalizar Compra', home_checkout_path, class: 'btn btn-red btn-block mb-30'%>
 
-<p>
-  <strong>Price:</strong>
-  <%= @item.price %>
-</p>
+</div>
 
-<p>
-  <strong>Date:</strong>
-  <%= @item.date %>
-</p>
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>

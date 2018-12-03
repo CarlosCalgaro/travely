@@ -1,6 +1,9 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :can_commit, only: [:create, :new, :update, :edit]
+
+  skip_before_action :authenticate_user!, only: [:show]
+
   # GET /products
   # GET /products.json
   def can_commit

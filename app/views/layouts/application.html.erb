@@ -17,21 +17,23 @@
 <body>
     <%= render "layouts/header" %>
 
-    <div id="search-box">
+    <%# <div id="search-box">
       <div>
         <div>
           <i class="fa fa-search"></i>
         </div>
         <input placeholder="O que está procurando?" type="text">
       </div>
-    </div>
+    </div> %>
 
-    <div id="banner">
-      <div class="opacity-top"></div>
-      <div class="reflection"></div>
-      <img  class=""src="/resources/images/cabana.jpg">
-      <div class="opacity-bottom"></div>
-    </div>
+    <% if @banner %>
+      <div id="banner">
+        <div class="opacity-top"></div>
+        <div class="reflection"></div>
+        <img  class=""src="/resources/images/cabana.jpg">
+        <div class="opacity-bottom"></div>
+      </div>
+    <% end %>
 
     <%= yield %>
 

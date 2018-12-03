@@ -43,7 +43,7 @@ input {
   padding: 0px 30px;
   box-shadow: 0px -11px 27px black;
   position: relative;
-
+  z-index: 999;
 }
 
 #head>div {
@@ -129,7 +129,7 @@ input {
 
 .title {
   background: white;
-  box-shadow: 0px -11px 27px black;
+  /* box-shadow: 0px -11px 27px black; */
   position: relative;
   /* color:#69a8ff;   */
   color: #ff7f7f;
@@ -163,15 +163,9 @@ input {
 }
 
 .p1 {
-  width: 50%;
-  max-width: 50%;
+  width: 250px;
   min-height: 400px;
-
-}
-
-.p1:hover {
-  width: 70%;
-  max-width: 70%;
+  display: inline-block;
 }
 
 .p2 {
@@ -361,12 +355,10 @@ input {
 .header-logo {
   text-align: center;
   cursor: pointer;
-}
-
-.header-logo a {
   text-decoration: none;
   text-transform: uppercase;
   color: #ff7f7f;
+  margin-left: 100px;
 }
 
 .header-btn {
@@ -421,4 +413,50 @@ input {
 
 svg.fa-star {
   color: #fbaa0e
+}
+
+
+.tabela {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tabela td, .tabela th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.tabela tr:nth-child(even){background-color: #f2f2f2;}
+
+.tabela tr:hover {background-color: #ddd;}
+
+.tabela th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #ff7f7f;
+  color: white;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
 }

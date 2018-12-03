@@ -1,10 +1,4 @@
 jQuery(document).ready(function(){
-    jQuery('.square-w').resize(function(){
-        jQuery(this).css('height',this.clientWidth);
-    }).trigger('resize')
-    jQuery('.square-h').resize(function(){
-        jQuery(this).css('width',this.clientHeight);
-    }).trigger('resize')
     jQuery("#EntrarButton").click(function(){
         jQuery("#ModalLogin").slideDown(400);
         jQuery(".LoginContainer").show()
