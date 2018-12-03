@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Travely</title>
+    <title>Turismaria</title>
     <%= csrf_meta_tags %>
 
     <script src="/vendors/jquery/jquery.js"></script>
@@ -13,6 +13,7 @@
     <script src="/vendors/font-awesome/fontawesome-all.js"></script>
     <link rel="stylesheet" href="/vendors/font-awesome/fa-svg-with-js.css">
     <link rel="stylesheet" href="/resources/styles/main.css">
+    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
 </head>
 <body>
     <%= render "layouts/header" %>
@@ -32,6 +33,14 @@
         <div class="reflection"></div>
         <img  class=""src="/resources/images/cabana.jpg">
         <div class="opacity-bottom"></div>
+      </div>
+    <% end %>
+
+    <% if flash[:notice] && flash[:notice]['status'] %>
+      <div class="container">
+        <div class="alert alert-<%= flash[:notice]['status'] %> mt-30" role="alert">
+          <%= flash[:notice]['msg'].gsub(/\n/, '<br/>').html_safe %>
+        </div>
       </div>
     <% end %>
 

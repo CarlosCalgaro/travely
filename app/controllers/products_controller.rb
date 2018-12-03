@@ -71,6 +71,17 @@ class ProductsController < ApplicationController
     end
   end
 
+  def validate
+    begin
+      @reservation = Reservation.find(params[:code])
+      flash[:notice] = { status: 'success', msg: "Reserva Válida \n Usuário: " + @reservation.user.email + " \n Produto: " + @reservation.item.product.name + " \n Data Inicial: " + @reservation.initial_date.strftime("%d/%m/%Y %H:%m") + " \n Data Final: " + @reservation.final_date.strftime("%d/%m/%Y %H:%m") }
+      redirect_to products_path
+    rescue ActiveRecord::RecordNotFound
+      flash[:notice] = { status: 'warning', msg: 'Reserva Inválida' }
+      redirect_to products_path
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product

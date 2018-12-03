@@ -3,20 +3,27 @@
 </div>
 
 <div class="container">
-  <%= link_to 'Criar Produto', new_product_path %>
+  <%= form_tag("/products/validate", method: "post", class: 'form-inline') do %>
+    <%= text_field_tag(:code, '', { placeholder: 'Código da reserva', class: 'form-control'}) %>
+    <%= submit_tag("Validar Reserva", class: 'btn btn-red') %>
+  <% end %>
 
-  <% @products.each do |product| %>
-    <table class="tabela">
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Quantidade</th>
-          <th>Preço</th>
-          <th>Endereço</th>
-          <th colspan="4"></th>
-        </tr>
-      </thead>
-      <tbody>
+  <br><br>
+
+  <%= link_to 'Criar Produto', new_product_path, class: 'btn btn-red' %>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Quantidade</th>
+        <th>Preço</th>
+        <th>Endereço</th>
+        <th colspan="4"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
         <tr>
             <td><%= product.name %></td>
             <td><%= product.quantity %></td>
@@ -24,9 +31,15 @@
             <td><%= product.address %></td>
             <td><%= link_to 'Visualizar', product %></td>
             <td><%= link_to 'Editar', edit_product_path(product) %></td>
-            <td><%= link_to 'Remover', product, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+            <td>
+              <% if product.items.size > 0 %>
+                Impossível remover produto.
+              <% else %>
+                <%= link_to 'Remover', destroy_product_path(product) %>
+              <% end %>
+            </td>
         </tr>
-      </tbody>
-    </table>
-  <% end %>
+      <% end %>
+    </tbody>
+  </table>
 </div>
