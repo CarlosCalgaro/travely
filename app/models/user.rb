@@ -5,9 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :reservations
+  has_many :products
 
   def is_human?
     self.type == "HumanUser" ? true : false
   end
-  
+
 end
