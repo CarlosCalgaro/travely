@@ -5,9 +5,10 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
 
-  <table class="tabela">
+  <table class="table">
     <thead>
       <tr>
+        <th>Código</th>
         <th>Data Inicial</th>
         <th>Data Final</th>
         <th>Observação</th>
@@ -20,13 +21,13 @@
     <tbody>
       <% @reservations.each do |reservation| %>
         <tr>
+          <td><%= reservation.id %></td>
           <td><%= reservation.initial_date.strftime("%d/%m/%Y") %></td>
           <td><%= reservation.final_date.strftime("%d/%m/%Y") %></td>
           <td><%= reservation.obs %></td>
           <td><%= reservation.user.email %></td>
           <td><%= reservation.item.name %></td>
-          <td><%= link_to 'Cancelar Reserva', reservation, method: :delete,
-                            data: { confirm: 'Tem certeza?' }, class: ""%> </td>
+          <td><%= link_to 'Cancelar Reserva', destroy_reservation_path(reservation) %></td>
 
         </tr>
       <% end %>

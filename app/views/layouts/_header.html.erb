@@ -3,8 +3,11 @@
     <div>
         <% if user_signed_in? %>
             <%= link_to('Sair', destroy_user_session_path, class: "header-btn", style: "float:right") %>
-            <%= link_to('Meus Produtos', products_path, class: "header-btn", style: "float:right") %>
-            <%= link_to('Minhas Reservas', reservations_path, class: "header-btn", style: "float:right") %>
+            <% if current_user.is_human? %>
+                <%= link_to('Minhas Reservas', reservations_path, class: "header-btn", style: "float:right") %>
+            <% else %>
+                <%= link_to('Meus Produtos', products_path, class: "header-btn", style: "float:right") %>
+            <% end %>
         <% else %>
             <span style="float:right" class="header-btn" id="EntrarButton">
                 Entrar
