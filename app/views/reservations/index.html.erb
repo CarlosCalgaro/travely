@@ -8,12 +8,12 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Código</th>
-        <th>Data Inicial</th>
-        <th>Data Final</th>
-        <th>Observação</th>
-        <th>Usuário</th>
-        <th>Item</th>
+        <th class="text-center">Código</th>
+        <th class="text-center">Item</th>
+        <th class="text-center">Data Inicial</th>
+        <th class="text-center">Data Final</th>
+        <th class="text-center">Quantidade</th>
+        <th class="text-center">Observação</th>
         <th colspan="1"></th>
       </tr>
     </thead>
@@ -21,17 +21,15 @@
     <tbody>
       <% @reservations.each do |reservation| %>
         <tr>
-          <td><%= reservation.id %></td>
-          <td><%= reservation.initial_date.strftime("%d/%m/%Y") %></td>
-          <td><%= reservation.final_date.strftime("%d/%m/%Y") %></td>
-          <td><%= reservation.obs %></td>
-          <td><%= reservation.user.email %></td>
-          <td><%= reservation.item.name %></td>
-          <td><%= link_to 'Cancelar Reserva', destroy_reservation_path(reservation) %></td>
-
+          <td class="text-center"><%= reservation.id %></td>
+          <td class="text-center"><%= reservation.item.name %></td>
+          <td class="text-center"><%= reservation.initial_date.strftime("%d/%m/%Y %H:%m") %></td>
+          <td class="text-center"><%= reservation.final_date.strftime("%d/%m/%Y %H:%m") %></td>
+          <td class="text-center"><%= reservation.item.quantity %></td>
+          <td class="text-center"><%= reservation.obs %></td>
+          <td class="text-center"><%= link_to 'Cancelar Reserva', destroy_reservation_path(reservation) %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-
 </div>

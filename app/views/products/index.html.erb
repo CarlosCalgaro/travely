@@ -15,23 +15,23 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Nome</th>
-        <th>Quantidade</th>
-        <th>Preço</th>
-        <th>Endereço</th>
+        <th class="text-center">Nome</th>
+        <th class="text-center">Quantidade</th>
+        <th class="text-center">Preço</th>
+        <th class="text-center">Endereço</th>
         <th colspan="4"></th>
       </tr>
     </thead>
     <tbody>
       <% @products.each do |product| %>
         <tr>
-            <td><%= product.name %></td>
-            <td><%= product.quantity %></td>
-            <td><%= product.price %></td>
-            <td><%= product.address %></td>
-            <td><%= link_to 'Visualizar', product %></td>
-            <td><%= link_to 'Editar', edit_product_path(product) %></td>
-            <td>
+            <td class="text-center"><%= product.name %></td>
+            <td class="text-center"><%= product.quantity %></td>
+            <td class="text-center"><%= product.price_format %></td>
+            <td class="text-center"><%= product.address %></td>
+            <td class="text-center"><%= link_to 'Visualizar', product %></td>
+            <td class="text-center"><%= link_to 'Editar', edit_product_path(product) %></td>
+            <td class="text-center">
               <% if product.items.size > 0 %>
                 Impossível remover produto.
               <% else %>

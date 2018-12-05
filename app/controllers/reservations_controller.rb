@@ -54,8 +54,10 @@ class ReservationsController < ApplicationController
   # DELETE /reservations/1
   # DELETE /reservations/1.json
   def destroy
-    @reservation.item.destroy
+    item = @reservation.item
+
     @reservation.destroy
+    item.destroy
 
     respond_to do |format|
       format.html { redirect_to reservations_url, notice: 'Reserva cancelada com sucesso.' }
